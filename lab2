@@ -1,1 +1,13 @@
-
+def caesar_decipher(text, shift):
+    result = ""
+    for char in text:
+        if char.isalpha() and char.isascii():
+            start = ord('A') if char.isupper() else  ord('a')
+            new_char = chr((ord(char) -start -shift)% 26 + start)
+            result += new_char
+        else:
+            result += char
+    return result
+print(caesar_decipher("bcd", 1))
+print(caesar_decipher("123", 3))
+print(caesar_decipher("", 5))
